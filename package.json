@@ -1,19 +1,28 @@
 {
-  "name": "restfull",
+  "name": "postflow",
   "version": "1.0.0",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "blog",
+    "posts",
+    "restful",
+    "crud"
+  ],
   "author": "IQYAN ALI",
   "license": "ISC",
-  "description": "",
+  "description": "PostFlow - A modern RESTful blog post management system with beautiful UI",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "method-override": "^3.0.0",
+    "mongoose": "^9.0.2",
+    "multer": "^2.0.2",
     "uuid": "^13.0.0"
   }
 }

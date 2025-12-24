@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostFlow - Modern Blog Post Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-lg border-b border-indigo-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+                        <i class="fas fa-stream text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">PostFlow</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/posts" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors hidden md:block">
+                        View Posts
+                    </a>
+                    <a href="/posts/new" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-plus mr-2"></i>
+                        Create Post
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+            <div class="text-center">
+                <div class="inline-block mb-6 animate-float">
+                    <div class="w-24 h-24 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl mx-auto">
+                        <i class="fas fa-stream text-white text-5xl"></i>
+                    </div>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+                    Welcome to <span class="gradient-text">PostFlow</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    A modern, stylish RESTful blog post management system. Create, share, and manage your posts with ease.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="/posts" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Explore Posts
+                    </a>
+                    <a href="/posts/new" class="inline-flex items-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-lg shadow-lg hover:shadow-xl border-2 border-indigo-600 transform hover:scale-105 transition-all duration-200 text-lg">
+                        <i class="fas fa-pen-fancy mr-2"></i>
+                        Create Your First Post
+                    </a>
+                </div>
+                <div class="mt-12 flex items-center justify-center space-x-8 text-gray-600">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-indigo-600"><%= postsCount %></div>
+                        <div class="text-sm">Total Posts</div>
+                    </div>
+                    <div class="w-px h-12 bg-gray-300"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-purple-600">100%</div>
+                        <div class="text-sm">RESTful API</div>
+                    </div>
+                    <div class="w-px h-12 bg-gray-300"></div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-pink-600">Modern</div>
+                        <div class="text-sm">UI Design</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Powerful Features
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Everything you need to manage your blog posts efficiently
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-plus-circle text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Create Posts</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Easily create new blog posts with a beautiful, intuitive interface. Share your thoughts and ideas with the world.
+                    </p>
+                    <a href="/posts/new" class="inline-flex items-center mt-6 text-indigo-600 font-semibold hover:text-indigo-700 transition-colors">
+                        Try it now <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-list text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">View All Posts</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Browse through all posts in a beautiful card-based grid layout. Discover content from the community.
+                    </p>
+                    <a href="/posts" class="inline-flex items-center mt-6 text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                        Explore posts <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-edit text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Edit Posts</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Update your posts anytime with our seamless editing experience. Make changes quickly and efficiently.
+                    </p>
+                    <a href="/posts" class="inline-flex items-center mt-6 text-yellow-600 font-semibold hover:text-yellow-700 transition-colors">
+                        View posts <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-trash-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Delete Posts</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Remove posts you no longer need with a simple click. Clean and manage your content effortlessly.
+                    </p>
+                    <a href="/posts" class="inline-flex items-center mt-6 text-red-600 font-semibold hover:text-red-700 transition-colors">
+                        Manage posts <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Responsive Design</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Access PostFlow from any device. Our responsive design ensures a perfect experience on mobile, tablet, and desktop.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">RESTful API</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Built with RESTful principles. Clean, standard HTTP methods for all operations following best practices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl shadow-2xl p-12 md:p-16 text-white">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">About PostFlow</h2>
+                    <p class="text-xl md:text-2xl text-indigo-100 leading-relaxed mb-8">
+                        PostFlow is a modern RESTful blog post management system built with Express.js and EJS. 
+                        It provides a beautiful, intuitive interface for creating, reading, updating, and deleting posts.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                            <i class="fas fa-bolt text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Fast & Efficient</h3>
+                            <p class="text-indigo-100">Lightning-fast performance with optimized code</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                            <i class="fas fa-shield-alt text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Secure</h3>
+                            <p class="text-indigo-100">Built with security best practices in mind</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                            <i class="fas fa-heart text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">User-Friendly</h3>
+                            <p class="text-indigo-100">Intuitive design that anyone can use</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="py-20 bg-white/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Built With Modern Technologies
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Powered by the best tools and frameworks
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow">
+                    <i class="fab fa-node-js text-6xl text-green-600 mb-4"></i>
+                    <h3 class="font-bold text-gray-900">Express.js</h3>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow">
+                    <i class="fab fa-html5 text-6xl text-orange-600 mb-4"></i>
+                    <h3 class="font-bold text-gray-900">EJS</h3>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow">
+                    <i class="fab fa-css3-alt text-6xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-gray-900">Tailwind CSS</h3>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow">
+                    <i class="fas fa-code text-6xl text-purple-600 mb-4"></i>
+                    <h3 class="font-bold text-gray-900">RESTful API</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-white rounded-3xl shadow-2xl p-12 border border-gray-100">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Ready to Get Started?
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Join the PostFlow community and start sharing your thoughts today!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/posts/new" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg">
+                        <i class="fas fa-plus-circle mr-2"></i>
+                        Create Your First Post
+                    </a>
+                    <a href="/posts" class="inline-flex items-center justify-center px-8 py-4 bg-white text-indigo-600 font-semibold rounded-lg shadow-lg hover:shadow-xl border-2 border-indigo-600 transform hover:scale-105 transition-all duration-200 text-lg">
+                        <i class="fas fa-eye mr-2"></i>
+                        Browse All Posts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-stream text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold">PostFlow</span>
+                    </div>
+                    <p class="text-gray-400">
+                        A modern RESTful blog post management system with beautiful UI.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="/posts" class="hover:text-white transition-colors">All Posts</a></li>
+                        <li><a href="/posts/new" class="hover:text-white transition-colors">Create Post</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Features</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Create Posts</li>
+                        <li>Edit Posts</li>
+                        <li>Delete Posts</li>
+                        <li>View Details</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 PostFlow. Built with ❤️ by IQYAN ALI using Express.js & Tailwind CSS</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
